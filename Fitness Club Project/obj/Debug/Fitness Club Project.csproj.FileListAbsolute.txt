@@ -1,0 +1,17 @@
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\Fitness Club Project.exe.config
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\Fitness Club Project.exe
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\Fitness Club Project.pdb
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness Club Project.csprojAssemblyReference.cache
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form1.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Properties.Resources.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness Club Project.csproj.GenerateResource.cache
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness Club Project.csproj.CoreCompileInputs.cache
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness Club Project.exe
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness Club Project.pdb
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Registration.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form3.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form4.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form5.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form6.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form7.resources
+C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form8.resources
