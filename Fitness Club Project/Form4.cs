@@ -12,6 +12,16 @@ namespace Fitness_Club_Project
 {
     public partial class Form4 : Form
     {
+        public static UserInformation thisUser = new UserInformation();
+        public Form4(UserLog user)
+        {
+            InitializeComponent();
+            using (FitnessClubDBEntities1 database = new FitnessClubDBEntities1())
+            {
+                thisUser = database.UserInformations.FirstOrDefault(x => x.loginID == user.loginID);
+            }
+        }
+
         public Form4()
         {
             InitializeComponent();

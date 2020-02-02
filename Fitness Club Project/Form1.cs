@@ -41,9 +41,32 @@ namespace Fitness_Club_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form3 aa = new Form3();
-            aa.Show();
+            using (FitnessClubDBEntities1 database = new FitnessClubDBEntities1())
+            {
+                var user = database.UserLogs.FirstOrDefault(x => x.Login == UsernameTextBox.Text);
+
+                if(user != null)
+                {
+                    if (user.Password == PasswordTextBox.Text)
+                    {
+                        this.Hide();
+                        Form3 aa = new Form3(user);
+                        aa.Show();
+                    }
+                    else { MessageBox.Show("Incorrect Password!, Try it again");}
+                }
+
+                else { MessageBox.Show("Incorrect Login!"); }
+                    
+
+                
+            }
+
+
+
+
+
+                
         }
     }
 }

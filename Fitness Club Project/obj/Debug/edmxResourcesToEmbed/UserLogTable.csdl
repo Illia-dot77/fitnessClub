@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitnessClubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserContact">
+    <Key>
+      <PropertyRef Name="userContactID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserInformations" Relationship="Self.FK_UserInformation_UserContactID" FromRole="UserContact" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="height" Type="Int32" Nullable="false" />
+    <Property Name="weight" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="loginID" Type="Int32" Nullable="false" />
+    <Property Name="userContactID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserContact" Relationship="Self.FK_UserInformation_UserContactID" FromRole="UserInformation" ToRole="UserContact" />
+    <NavigationProperty Name="UserLog" Relationship="Self.FK_UserInformation_UserLog" FromRole="UserInformation" ToRole="UserLog" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="loginID" />
+    </Key>
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="loginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserInformations" Relationship="Self.FK_UserInformation_UserLog" FromRole="UserLog" ToRole="UserInformation" />
+  </EntityType>
+  <Association Name="FK_UserInformation_UserContactID">
+    <End Role="UserContact" Type="Self.UserContact" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserContact">
+        <PropertyRef Name="userContactID" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="userContactID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_UserLog">
+    <End Role="UserLog" Type="Self.UserLog" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLog">
+        <PropertyRef Name="loginID" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="loginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FitnessClubDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserContacts" EntityType="Self.UserContact" />
+    <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
+    <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+    <AssociationSet Name="FK_UserInformation_UserContactID" Association="Self.FK_UserInformation_UserContactID">
+      <End Role="UserContact" EntitySet="UserContacts" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_UserLog" Association="Self.FK_UserInformation_UserLog">
+      <End Role="UserLog" EntitySet="UserLogs" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -12,15 +12,17 @@ namespace Fitness_Club_Project
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        UserLog tmpUser = new UserLog();
+        public Form3(UserLog user)
         {
             InitializeComponent();
+            tmpUser = user;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form4 ss = new Form4();
+            Form4 ss = new Form4(tmpUser);
             ss.Show();
         }
     }
