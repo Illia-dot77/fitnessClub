@@ -56,11 +56,11 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(265, 172);
+            this.button1.Location = new System.Drawing.Point(269, 142);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 57);
             this.button1.TabIndex = 2;
-            this.button1.Text = "HERE WE GO AGAIN";
+            this.button1.Text = "HERE WE GO ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,7 +75,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form3";
-            this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();
 

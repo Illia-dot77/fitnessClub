@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,7 +37,7 @@ namespace Fitness_Club_Project
                 database.UserContacts.Find(Form4.thisUser.userContactID).PhoneNumber = PhoneNumberBox.Text;
                 database.UserContacts.Find(Form4.thisUser.userContactID).Email = EmailBox.Text;
                 database.SaveChanges();
-                MessageBox.Show("Your account was deleted");
+                MessageBox.Show("Operation completed successfully");
             }
             else
             {
@@ -49,9 +48,9 @@ namespace Fitness_Club_Project
         private void DeleteButt_Click(object sender, EventArgs e)
         {
             FitnessClubDBEntities1 database = new FitnessClubDBEntities1();
-            database.Entry(Form4.thisUser).State = EntityState.Deleted;
-            database.Entry(Form4.thisLog).State = EntityState.Deleted;
-            database.Entry(Form4.thisContact).State = EntityState.Deleted;
+            database.Entry(Form4.thisUser).State = System.Data.Entity.EntityState.Deleted;
+            database.Entry(Form4.thisLog).State = System.Data.Entity.EntityState.Deleted;
+            database.Entry(Form4.thisContact).State = System.Data.Entity.EntityState.Deleted;
             database.UserInformations.Remove(Form4.thisUser);
             database.UserLogs.Remove(Form4.thisLog);
             database.UserContacts.Remove(Form4.thisContact);

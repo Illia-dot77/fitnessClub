@@ -68,9 +68,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(70, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(399, 24);
+            this.label2.Size = new System.Drawing.Size(377, 24);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Press it to edit your personal infomration";
+            this.label2.Text = "Press to edit your personal infomration";
             // 
             // button7
             // 
@@ -139,7 +139,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "Main Menu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

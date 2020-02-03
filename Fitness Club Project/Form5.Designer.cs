@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.fitnessClubDBDataSet1 = new Fitness_Club_Project.FitnessClubDBDataSet1();
-            this.clubsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clubsTableAdapter = new Fitness_Club_Project.FitnessClubDBDataSet1TableAdapters.ClubsTableAdapter();
             this.clubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessClubDBDataSet1 = new Fitness_Club_Project.FitnessClubDBDataSet1();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.clubsTableAdapter = new Fitness_Club_Project.FitnessClubDBDataSet1TableAdapters.ClubsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessClubDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clubsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessClubDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -59,6 +59,40 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(302, 234);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // clubIDDataGridViewTextBoxColumn
+            // 
+            this.clubIDDataGridViewTextBoxColumn.DataPropertyName = "clubID";
+            this.clubIDDataGridViewTextBoxColumn.HeaderText = "clubID";
+            this.clubIDDataGridViewTextBoxColumn.Name = "clubIDDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "city";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "city";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "state";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "state";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // clubsBindingSource
+            // 
+            this.clubsBindingSource.DataMember = "Clubs";
+            this.clubsBindingSource.DataSource = this.fitnessClubDBDataSet1;
+            // 
+            // fitnessClubDBDataSet1
+            // 
+            this.fitnessClubDBDataSet1.DataSetName = "FitnessClubDBDataSet1";
+            this.fitnessClubDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -89,43 +123,9 @@
             this.panel1.Size = new System.Drawing.Size(307, 218);
             this.panel1.TabIndex = 3;
             // 
-            // fitnessClubDBDataSet1
-            // 
-            this.fitnessClubDBDataSet1.DataSetName = "FitnessClubDBDataSet1";
-            this.fitnessClubDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clubsBindingSource
-            // 
-            this.clubsBindingSource.DataMember = "Clubs";
-            this.clubsBindingSource.DataSource = this.fitnessClubDBDataSet1;
-            // 
             // clubsTableAdapter
             // 
             this.clubsTableAdapter.ClearBeforeFill = true;
-            // 
-            // clubIDDataGridViewTextBoxColumn
-            // 
-            this.clubIDDataGridViewTextBoxColumn.DataPropertyName = "clubID";
-            this.clubIDDataGridViewTextBoxColumn.HeaderText = "clubID";
-            this.clubIDDataGridViewTextBoxColumn.Name = "clubIDDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "city";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "city";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "state";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "state";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
             // 
             // Form5
             // 
@@ -139,11 +139,11 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "List";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessClubDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clubsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessClubDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
