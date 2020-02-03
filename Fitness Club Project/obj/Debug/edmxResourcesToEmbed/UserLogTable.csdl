@@ -1,10 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FitnessClubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="clubID" />
+    </Key>
+    <Property Name="clubID" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Organizer">
+    <Key>
+      <PropertyRef Name="OrgID" />
+    </Key>
+    <Property Name="OrgID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="trainerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Trainer" Relationship="Self.FK_Organization_Trainers" FromRole="Organizer" ToRole="Trainers" />
+  </EntityType>
+  <EntityType Name="Trainer">
+    <Key>
+      <PropertyRef Name="trainerID" />
+    </Key>
+    <Property Name="trainerID" Type="Int32" Nullable="false" />
+    <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Organizers" Relationship="Self.FK_Organization_Trainers" FromRole="Trainers" ToRole="Organizer" />
+  </EntityType>
   <EntityType Name="UserContact">
     <Key>
       <PropertyRef Name="userContactID" />
     </Key>
-    <Property Name="userID" Type="Int32" Nullable="false" />
     <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="userContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -35,6 +63,20 @@
     <Property Name="loginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="UserInformations" Relationship="Self.FK_UserInformation_UserLog" FromRole="UserLog" ToRole="UserInformation" />
   </EntityType>
+  <Association Name="FK_Organization_Trainers">
+    <End Role="Trainers" Type="Self.Trainer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainers">
+        <PropertyRef Name="trainerID" />
+      </Principal>
+      <Dependent Role="Organizer">
+        <PropertyRef Name="trainerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserInformation_UserContactID">
     <End Role="UserContact" Type="Self.UserContact" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -64,9 +106,16 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="FitnessClubDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clubs" EntityType="Self.Club" />
+    <EntitySet Name="Organizers" EntityType="Self.Organizer" />
+    <EntitySet Name="Trainers" EntityType="Self.Trainer" />
     <EntitySet Name="UserContacts" EntityType="Self.UserContact" />
     <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
     <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+    <AssociationSet Name="FK_Organization_Trainers" Association="Self.FK_Organization_Trainers">
+      <End Role="Trainers" EntitySet="Trainers" />
+      <End Role="Organizer" EntitySet="Organizers" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserInformation_UserContactID" Association="Self.FK_UserInformation_UserContactID">
       <End Role="UserContact" EntitySet="UserContacts" />
       <End Role="UserInformation" EntitySet="UserInformations" />

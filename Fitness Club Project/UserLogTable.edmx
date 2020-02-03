@@ -5,11 +5,37 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="FitnessClubDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clubs">
+          <Key>
+            <PropertyRef Name="clubID" />
+          </Key>
+          <Property Name="clubID" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="int" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="duration" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="trainerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trainers">
+          <Key>
+            <PropertyRef Name="trainerID" />
+          </Key>
+          <Property Name="trainerID" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserContact">
           <Key>
             <PropertyRef Name="userContactID" />
           </Key>
-          <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="userContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -36,6 +62,20 @@
           <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="loginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Organization_Trainers">
+          <End Role="Trainers" Type="Self.Trainers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainers">
+              <PropertyRef Name="trainerID" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="trainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserInformation_UserContactID">
           <End Role="UserContact" Type="Self.UserContact" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -65,9 +105,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FitnessClubDBModelStoreContainer">
+          <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserContact" EntityType="Self.UserContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Organization_Trainers" Association="Self.FK_Organization_Trainers">
+            <End Role="Trainers" EntitySet="Trainers" />
+            <End Role="Organizer" EntitySet="Organizer" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserInformation_UserContactID" Association="Self.FK_UserInformation_UserContactID">
             <End Role="UserContact" EntitySet="UserContact" />
             <End Role="UserInformation" EntitySet="UserInformation" />
@@ -82,11 +129,39 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FitnessClubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="clubID" />
+          </Key>
+          <Property Name="clubID" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="trainerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Trainer" Relationship="Self.FK_Organization_Trainers" FromRole="Organizer" ToRole="Trainers" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="trainerID" />
+          </Key>
+          <Property Name="trainerID" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Organizers" Relationship="Self.FK_Organization_Trainers" FromRole="Trainers" ToRole="Organizer" />
+        </EntityType>
         <EntityType Name="UserContact">
           <Key>
             <PropertyRef Name="userContactID" />
           </Key>
-          <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -117,6 +192,20 @@
           <Property Name="loginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="UserInformations" Relationship="Self.FK_UserInformation_UserLog" FromRole="UserLog" ToRole="UserInformation" />
         </EntityType>
+        <Association Name="FK_Organization_Trainers">
+          <End Role="Trainers" Type="Self.Trainer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainers">
+              <PropertyRef Name="trainerID" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="trainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserInformation_UserContactID">
           <End Role="UserContact" Type="Self.UserContact" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -146,9 +235,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FitnessClubDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clubs" EntityType="Self.Club" />
+          <EntitySet Name="Organizers" EntityType="Self.Organizer" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainer" />
           <EntitySet Name="UserContacts" EntityType="Self.UserContact" />
           <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
           <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+          <AssociationSet Name="FK_Organization_Trainers" Association="Self.FK_Organization_Trainers">
+            <End Role="Trainers" EntitySet="Trainers" />
+            <End Role="Organizer" EntitySet="Organizers" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserInformation_UserContactID" Association="Self.FK_UserInformation_UserContactID">
             <End Role="UserContact" EntitySet="UserContacts" />
             <End Role="UserInformation" EntitySet="UserInformations" />
@@ -164,10 +260,39 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FitnessClubDBModelStoreContainer" CdmEntityContainer="FitnessClubDBEntities1">
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="FitnessClubDBModel.Club">
+              <MappingFragment StoreEntitySet="Clubs">
+                <ScalarProperty Name="clubID" ColumnName="clubID" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizers">
+            <EntityTypeMapping TypeName="FitnessClubDBModel.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainers">
+            <EntityTypeMapping TypeName="FitnessClubDBModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainers">
+                <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserContacts">
             <EntityTypeMapping TypeName="FitnessClubDBModel.UserContact">
               <MappingFragment StoreEntitySet="UserContact">
-                <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="userContactID" ColumnName="userContactID" />

@@ -40,9 +40,9 @@
             this.EmailBox = new System.Windows.Forms.TextBox();
             this.ChangeEmail = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.UpdateButt = new System.Windows.Forms.Button();
             this.DeleteButt = new System.Windows.Forms.Button();
+            this.UpdateButt = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +149,27 @@
             this.panel1.Size = new System.Drawing.Size(333, 61);
             this.panel1.TabIndex = 5;
             // 
+            // DeleteButt
+            // 
+            this.DeleteButt.Location = new System.Drawing.Point(119, 7);
+            this.DeleteButt.Name = "DeleteButt";
+            this.DeleteButt.Size = new System.Drawing.Size(92, 45);
+            this.DeleteButt.TabIndex = 4;
+            this.DeleteButt.Text = "Delete";
+            this.DeleteButt.UseVisualStyleBackColor = true;
+            this.DeleteButt.Click += new System.EventHandler(this.DeleteButt_Click);
+            // 
+            // UpdateButt
+            // 
+            this.UpdateButt.Location = new System.Drawing.Point(3, 7);
+            this.UpdateButt.Name = "UpdateButt";
+            this.UpdateButt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UpdateButt.Size = new System.Drawing.Size(95, 45);
+            this.UpdateButt.TabIndex = 3;
+            this.UpdateButt.Text = "Update";
+            this.UpdateButt.UseVisualStyleBackColor = true;
+            this.UpdateButt.Click += new System.EventHandler(this.UpdateButt_Click);
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -166,26 +187,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(334, 226);
             this.panel2.TabIndex = 6;
-            // 
-            // UpdateButt
-            // 
-            this.UpdateButt.Location = new System.Drawing.Point(3, 7);
-            this.UpdateButt.Name = "UpdateButt";
-            this.UpdateButt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UpdateButt.Size = new System.Drawing.Size(95, 45);
-            this.UpdateButt.TabIndex = 3;
-            this.UpdateButt.Text = "Update";
-            this.UpdateButt.UseVisualStyleBackColor = true;
-            this.UpdateButt.Click += new System.EventHandler(this.UpdateButt_Click);
-            // 
-            // DeleteButt
-            // 
-            this.DeleteButt.Location = new System.Drawing.Point(119, 7);
-            this.DeleteButt.Name = "DeleteButt";
-            this.DeleteButt.Size = new System.Drawing.Size(92, 45);
-            this.DeleteButt.TabIndex = 4;
-            this.DeleteButt.Text = "Delete";
-            this.DeleteButt.UseVisualStyleBackColor = true;
             // 
             // Form7
             // 

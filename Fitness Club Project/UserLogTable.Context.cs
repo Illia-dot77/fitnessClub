@@ -25,6 +25,9 @@ namespace Fitness_Club_Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Club> Clubs { get; set; }
+        public virtual DbSet<Organizer> Organizers { get; set; }
+        public virtual DbSet<Trainer> Trainers { get; set; }
         public virtual DbSet<UserContact> UserContacts { get; set; }
         public virtual DbSet<UserInformation> UserInformations { get; set; }
         public virtual DbSet<UserLog> UserLogs { get; set; }

@@ -1,10 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FitnessClubDBModelStoreContainer" CdmEntityContainer="FitnessClubDBEntities1">
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="FitnessClubDBModel.Club">
+        <MappingFragment StoreEntitySet="Clubs">
+          <ScalarProperty Name="clubID" ColumnName="clubID" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizers">
+      <EntityTypeMapping TypeName="FitnessClubDBModel.Organizer">
+        <MappingFragment StoreEntitySet="Organizer">
+          <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainers">
+      <EntityTypeMapping TypeName="FitnessClubDBModel.Trainer">
+        <MappingFragment StoreEntitySet="Trainers">
+          <ScalarProperty Name="trainerID" ColumnName="trainerID" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UserContacts">
       <EntityTypeMapping TypeName="FitnessClubDBModel.UserContact">
         <MappingFragment StoreEntitySet="UserContact">
-          <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="userContactID" ColumnName="userContactID" />

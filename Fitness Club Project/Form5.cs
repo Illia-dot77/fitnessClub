@@ -23,5 +23,20 @@ namespace Fitness_Club_Project
             Form4 ss = new Form4();
             ss.Show();
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'fitnessClubDBDataSet1.Clubs' . Możesz go przenieść lub usunąć.
+            this.clubsTableAdapter.Fill(this.fitnessClubDBDataSet1.Clubs);
+
+        }
+
+        public void PopulateDataGridView()
+        {
+            using (FitnessClubDBEntities1 database = new FitnessClubDBEntities1())
+            {
+                this.dataGridView1.DataSource = database.Clubs.ToList();
+            }
+        }
     }
 }

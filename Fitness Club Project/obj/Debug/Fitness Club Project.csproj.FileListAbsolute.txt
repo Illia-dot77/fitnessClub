@@ -14,7 +14,6 @@ C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fit
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form5.resources
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form6.resources
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form7.resources
-C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\obj\Debug\Fitness_Club_Project.Form8.resources
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\netstandard.dll
 C:\Users\Mojshar\Desktop\Fitness Club Project\Fitness Club Project\bin\Debug\System.AppContext.dll

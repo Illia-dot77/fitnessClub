@@ -125,6 +125,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Club.cs">
+      <DependentUpon>UserLogTable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FitnessClubDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitnessClubDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FitnessClubDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitnessClubDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,14 +180,14 @@
     <Compile Include="Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form8.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <Compile Include="Organizer.cs">
+      <DependentUpon>UserLogTable.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trainer.cs">
+      <DependentUpon>UserLogTable.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserContact.cs">
       <DependentUpon>UserLogTable.tt</DependentUpon>
     </Compile>
@@ -220,9 +233,6 @@
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -233,6 +243,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FitnessClubDBDataSet.xsc">
+      <DependentUpon>FitnessClubDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FitnessClubDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FitnessClubDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FitnessClubDBDataSet.xss">
+      <DependentUpon>FitnessClubDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FitnessClubDBDataSet1.xsc">
+      <DependentUpon>FitnessClubDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FitnessClubDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FitnessClubDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FitnessClubDBDataSet1.xss">
+      <DependentUpon>FitnessClubDBDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

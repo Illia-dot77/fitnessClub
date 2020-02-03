@@ -57,7 +57,7 @@ namespace Fitness_Club_Project
                     if (RadioButtFemale.Checked == true) { client.gender = "female"; }
 
 
-                    bbb.userID = client.userID;
+                    
                     aaa.loginID = client.loginID;
 
                     aaa.Login = LoginBox.Text;

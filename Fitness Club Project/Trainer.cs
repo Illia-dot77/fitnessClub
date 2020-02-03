@@ -12,19 +12,19 @@ namespace Fitness_Club_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class UserContact
+    public partial class Trainer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserContact()
+        public Trainer()
         {
-            this.UserInformations = new HashSet<UserInformation>();
+            this.Organizers = new HashSet<Organizer>();
         }
     
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public int userContactID { get; set; }
+        public int trainerID { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserInformation> UserInformations { get; set; }
+        public virtual ICollection<Organizer> Organizers { get; set; }
     }
 }

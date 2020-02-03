@@ -4,10 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d4e7bbfc61734869a07859746750a68b" Name="Diagram1">
-        <EntityTypeShape EntityType="FitnessClubDBModel.UserContact" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+      <Diagram DiagramId="25965dbb375b482687bfd30574b92bdd" Name="Diagram1">
+        <EntityTypeShape EntityType="FitnessClubDBModel.Club" Width="1.5" PointX="6.125" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessClubDBModel.Organizer" Width="1.5" PointX="7.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessClubDBModel.Trainer" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessClubDBModel.UserContact" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessClubDBModel.UserInformation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessClubDBModel.UserLog" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="FitnessClubDBModel.FK_Organization_Trainers" ManuallyRouted="false" />
         <AssociationConnector Association="FitnessClubDBModel.FK_UserInformation_UserContactID" ManuallyRouted="false" />
         <AssociationConnector Association="FitnessClubDBModel.FK_UserInformation_UserLog" ManuallyRouted="false" />
       </Diagram>
